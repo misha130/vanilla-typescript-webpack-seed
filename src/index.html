@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/icon/favicon.ico" type="image/x-icon">
+    <title>
+        Energy Saving
+    </title>
+    <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+    <% if (webpackConfig.htmlElements.headTags) { %>
+        <!-- Configured Head Tags  -->
+        <%= webpackConfig.htmlElements.headTags %>
+            <% } %>
+                <!-- base url -->
+                <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+</head>
+
+<body>
+    <div id="app">
+        <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
+    </div>
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+        <!-- Webpack Dev Server reload -->
+        <script src="/webpack-dev-server.js"></script>
+        <% } %>
+</body>
+
+</html>
