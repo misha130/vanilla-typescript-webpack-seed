@@ -1,5 +1,3 @@
-declare var require: any;
-
 import { Component, Vue } from 'av-ts';
 @Component({
     template: require('./app.vue'),

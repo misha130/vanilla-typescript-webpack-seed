@@ -82,8 +82,8 @@ module.exports = function (options) {
                     test: /\.vue$/,
                     loader: "vue",
                 }, {
-                    test: /\.ts$/,
-                    loader: "vue-ts",
+                    test: /\.tsx?$/,
+                    loaders: ['vue-ts'],
                 }, {
                     test: /\.html$/,
                     loader: "raw-loader",
@@ -167,15 +167,13 @@ module.exports = function (options) {
              *
              * See: https://github.com/ampedandwired/html-webpack-plugin
              */
-            new HtmlWebpackPlugin(
-            //     {
-            //     template: "src/index.html",
-            //     title: METADATA.title,
-            //     chunksSortMode: "dependency",
-            //     metadata: METADATA,
-            //     inject: "head",
-            // }
-            ),
+            new HtmlWebpackPlugin({
+                template: 'src/index.html',
+                title: METADATA.title,
+                chunksSortMode: 'dependency',
+                metadata: METADATA,
+                inject: 'head',
+            }),
 
             /*
              * Plugin: ScriptExtHtmlWebpackPlugin
@@ -219,18 +217,7 @@ module.exports = function (options) {
              *
              * See: https://gist.github.com/sokra/27b24881210b56bbaff7
              */
-            new LoaderOptionsPlugin({
-                options: {
-                    vue: {
-                        // instruct vue-loader to load TypeScript
-                        loaders: {
-                            js: "vue-ts-loader",
-                        },
-                        // make TS" generated code cooperate with vue-loader
-                        esModule: true,
-                    },
-                },
-            }),
+            new LoaderOptionsPlugin(),
 
         ],
 

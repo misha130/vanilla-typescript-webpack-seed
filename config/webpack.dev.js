@@ -89,6 +89,64 @@ module.exports = function (options) {
         },
 
         plugins: [
+            /**
+             * Plugin: DefinePlugin
+             * Description: Define free variables.
+             * Useful for having development builds with debug logging or adding global constants.
+             *
+             * Environment helpers
+             *
+             * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+             */
+            // NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
+            new DefinePlugin({
+                'ENV': JSON.stringify(METADATA.ENV),
+                'HMR': METADATA.HMR,
+                'process.env': {
+                    'ENV': JSON.stringify(METADATA.ENV),
+                    'NODE_ENV': JSON.stringify(METADATA.ENV),
+                    'HMR': METADATA.HMR,
+                },
+            }),
+
+            /**
+             * Plugin: NamedModulesPlugin (experimental)
+             * Description: Uses file names as module name.
+             *
+             * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
+             */
+            new NamedModulesPlugin(),
+
+            /**
+             * Plugin LoaderOptionsPlugin (experimental)
+             *
+             * See: https://gist.github.com/sokra/27b24881210b56bbaff7
+             */
+            new LoaderOptionsPlugin({
+                debug: true,
+                options: {
+                    vue: {
+                        // instruct vue-loader to load TypeScript
+                        loaders: {
+                            ts: 'vue-ts-loader',
+                        },
+                        // make TS" generated code cooperate with vue-loader
+                        esModule: true,
+                    },
+                    /**
+                     * Static analysis linter for TypeScript advanced options configuration
+                     * Description: An extensible linter for the TypeScript language.
+                     *
+                     * See: https://github.com/wbuchwalter/tslint-loader
+                     */
+                    tslint: {
+                        emitErrors: false,
+                        failOnHint: false,
+                        resourcePath: 'src',
+                    },
+
+                },
+            }),
 
         ],
         /**
