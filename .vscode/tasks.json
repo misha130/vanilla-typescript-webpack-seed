@@ -23,7 +23,7 @@
             "taskName": "build",
             "isBuildCommand": true,
             "args": [
-                "run", "build"
+                "run", "server:dev"
             ]
         }
     ]

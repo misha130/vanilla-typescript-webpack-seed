@@ -125,14 +125,6 @@ module.exports = function (options) {
             new LoaderOptionsPlugin({
                 debug: true,
                 options: {
-                    vue: {
-                        // instruct vue-loader to load TypeScript
-                        loaders: {
-                            ts: 'vue-ts-loader',
-                        },
-                        // make TS" generated code cooperate with vue-loader
-                        esModule: true,
-                    },
                     /**
                      * Static analysis linter for TypeScript advanced options configuration
                      * Description: An extensible linter for the TypeScript language.

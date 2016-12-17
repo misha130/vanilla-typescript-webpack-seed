@@ -20,7 +20,7 @@ const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
  * Webpack Constants
  */
 const METADATA = {
-    title: "Vue",
+    title: "Vanilla",
     baseUrl: "/",
     isDevServer: helpers.isWebpackDevServer(),
 };
@@ -65,7 +65,7 @@ module.exports = function (options) {
              *
              * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
              */
-            extensions: [".ts", ".vue", ".js"],
+            extensions: [".ts", ".js"],
 
             // An array of directory names to be resolved to the current directory
             modules: [helpers.root("src"), "node_modules"],
@@ -79,14 +79,11 @@ module.exports = function (options) {
          */
         module: {
             loaders: [{
-                    test: /\.vue$/,
-                    loader: "vue",
-                }, {
-                    test: /\.tsx?$/,
-                    loaders: ['vue-ts'],
+                    test: /\.ts?$/,
+                    loader: "ts-loader",
                 }, {
                     test: /\.html$/,
-                    loader: "raw-loader",
+                    loader: "html-loader",
                     exclude: [helpers.root("src/index.html")],
                 },
                 /*
@@ -112,16 +109,16 @@ module.exports = function (options) {
                     exclude: /node_modules/,
                     loaders: ["raw-loader", "sass-loader"], // sass-loader not scss-loader
                 },
-                /* Raw loader support for *.html
-                 * Returns file content as string
-                 *
-                 * See: https://github.com/webpack/raw-loader
-                 */
-                {
-                    test: /\.html$/,
-                    loader: "raw-loader",
-                    exclude: [helpers.root("src/index.html")],
-                },
+                // /* Raw loader support for *.html
+                //  * Returns file content as string
+                //  *
+                //  * See: https://github.com/webpack/raw-loader
+                //  */
+                // {
+                //     test: /\.html$/,
+                //     loader: "raw-loader",
+                //     exclude: [helpers.root("src/index.html")],
+                // },
 
                 /* File loader for supporting images, for example, in CSS files.
                  */

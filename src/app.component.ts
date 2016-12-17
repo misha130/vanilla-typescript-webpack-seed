@@ -1,17 +1,28 @@
-import { Component, Vue } from 'av-ts';
-@Component({
-    template: require('./app.vue'),
-})
-export default class App extends Vue {
+import Header from './components/header/header';
+export default class App {
     public name = 'Rem';
-    public i = 0;
+    public index: number = 1;
+    private component: Element;
+    private header: Header;
     constructor() {
-        super();
+        document.getElementById((<any>this).constructor.name.toLowerCase()).innerHTML = require("./app.html");
+        this.header = new Header();
+        document.getElementById("add").addEventListener('click', () => {
+            this.add();
+        });
+        document.getElementById("sub").addEventListener('click', () => {
+            this.sub();
+        });
+        document.getElementById("name").innerHTML = this.name;
+        document.getElementById("count").innerHTML = this.index.toString();
+
     }
     public add() {
-        this.i++;
+        this.index = this.index + 1;
+        document.getElementById("count").innerHTML = this.index.toString();
     }
     public sub() {
-        this.i--;
+        this.index--;
+        document.getElementById("count").innerHTML = this.index.toString();
     }
 }

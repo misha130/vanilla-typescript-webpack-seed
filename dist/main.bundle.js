@@ -67,10 +67,19 @@ var ac_main =
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/app.ts":
+/***/ "./src/app.html":
 /***/ function(module, exports) {
 
-throw new Error("Module build failed: TypeError: Cannot read property 'unsafeCache' of undefined\n    at makeResolver (f:\\sensorySource\\vueTest\\node_modules\\vue-ts-loader\\resolver.js:35:57)\n    at ensureTypeScriptInstance (f:\\sensorySource\\vueTest\\node_modules\\vue-ts-loader\\index.js:214:20)\n    at Object.loader (f:\\sensorySource\\vueTest\\node_modules\\vue-ts-loader\\index.js:415:14)");
+module.exports = "module.exports = \"<app>\\r\\n    <h1 id=\\\"HelloEvent\\\">\\r\\n        <span id=\\\"name\\\"></span> is the best girl for <span id=\\\"count\\\"></span> times\\r\\n        <button @click.stop=\\\"add\\\">+</button>\\r\\n        <button @click.stop=\\\"sub\\\">-</button>\\r\\n    </h1>\\r\\n</app>\""
+
+/***/ },
+
+/***/ "./src/app.ts":
+/***/ function(module, exports, __webpack_require__) {
+
+var html = __webpack_require__("./src/app.html");
+document.getElementById('app').innerHTML = html;
+
 
 /***/ }
 
