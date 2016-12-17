@@ -1,12 +1,17 @@
+import Footer from './components/footer/footer';
 import Header from './components/header/header';
+
 export default class App {
     public name = 'Rem';
     public index: number = 1;
     private component: Element;
     private header: Header;
+    private footer: Footer;
+
     constructor() {
         document.getElementById((<any>this).constructor.name.toLowerCase()).innerHTML = require("./app.html");
         this.header = new Header();
+        this.footer = new Footer();
         document.getElementById("add").addEventListener('click', () => {
             this.add();
         });
