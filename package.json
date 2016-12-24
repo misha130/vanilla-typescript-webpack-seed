@@ -14,9 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.2",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "@types/jquery": "^2.0.34",
+    "@types/lodash": "^4.14.44",
+    "@types/node": "^6.0.53",
     "babel-core": "^6.20.0",
     "css-loader": "^0.25.0",
     "typescript": "2.0.10",
@@ -46,6 +51,8 @@
     "style-loader": "^0.13.1",
     "to-string-loader": "^1.1.4",
     "url-loader": "^0.5.7",
-    "tslint": "^4.0.2"
+    "tslint": "^4.0.2",
+    "ts-helpers": "1.1.2",
+    "ts-node": "^1.7.0"
   }
 }

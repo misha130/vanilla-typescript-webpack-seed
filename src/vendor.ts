@@ -1,1 +1,5 @@
-declare var require: any;
+import 'bootstrap';
+import 'jquery';
+import 'lodash';
+import 'ts-helpers';
+

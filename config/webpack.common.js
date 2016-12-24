@@ -50,6 +50,7 @@ module.exports = function (options) {
          * See: http://webpack.github.io/docs/configuration.html#entry
          */
         entry: {
+            "vendor": "./src/vendor.ts",
             "main": "./src/app.ts",
         },
 
